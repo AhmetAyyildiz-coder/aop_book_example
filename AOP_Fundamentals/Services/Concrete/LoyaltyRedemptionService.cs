@@ -24,7 +24,8 @@ public class LoyaltyRedemptionService : ILoyaltyRedemptionService
     /// <param name="numberOfDays">Kazanılacak ödül gün sayısı.</param>
     public void Redeem(Invoice invoice, int numberOfDays)
     {
-        
+        // defensive programming
+        if(invoice == null) throw new ArgumentNullException("invoice");       
         // logging
         Console.WriteLine("Redeem: {0}", DateTime.Now);
         Console.WriteLine("Invoice: {0}", invoice.Id);

@@ -17,6 +17,8 @@ public class LoyaltyAccrualService : ILoyaltyAccrualService
     }
 
     public void Accrue(RentalAgreement agreement) {
+        // defensive programming
+        if(agreement == null) throw new ArgumentNullException("agreement");
         
         // logging
         Console.WriteLine("Accrue: {0}", DateTime.Now);
