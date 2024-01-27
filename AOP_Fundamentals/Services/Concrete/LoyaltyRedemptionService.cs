@@ -32,20 +32,31 @@ public class LoyaltyRedemptionService : ILoyaltyRedemptionService
         Console.WriteLine("Invoice: {0}", invoice.Id);
         
         
-        // transaction imp.
-        using (var scope = new TransactionScope()) {
-            try {
-                var pointsPerDay = 10;
-                if (invoice.Vehicle.Size >= Size.Luxury)
-                    pointsPerDay = 15;
-                var points = numberOfDays*pointsPerDay;
-                _loyaltyDataService.SubtractPoints(invoice.Customer.Id, points);
-                invoice.Discount = numberOfDays*invoice.CostPerDay;
-                scope.Complete();
+        try
+        {
+            // transaction imp.
+            using (var scope = new TransactionScope())
+            {
+                try
+                {
+                    var pointsPerDay = 10;
+                    if (invoice.Vehicle.Size >= Size.Luxury)
+                        pointsPerDay = 15;
+                    var points = numberOfDays * pointsPerDay;
+                    _loyaltyDataService.SubtractPoints(invoice.Customer.Id, points);
+                    invoice.Discount = numberOfDays * invoice.CostPerDay;
+                    scope.Complete();
+                }
+                catch
+                {
+                    throw;
+                }
             }
-            catch {
-                throw;
-            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
         }
         
         // logging 

@@ -27,21 +27,33 @@ public class LoyaltyAccrualService : ILoyaltyAccrualService
         Console.WriteLine("Vehicle: {0}", agreement.Vehicle.Id);
         
         //transaction imp.
-        using (var scope = new TransactionScope()) {
-            try {
-                var rentalTime =
-                    (agreement.EndDate.Subtract(agreement.StartDate));var numberOfDays = (int) Math.Floor(rentalTime.TotalDays);
-                var pointsPerDay = 1;
-                if (agreement.Vehicle.Size >= Size.Luxury)
-                    pointsPerDay = 2;
-                var points = numberOfDays*pointsPerDay;
-                _loyaltyDataService.AddPoints(agreement.Customer.Id, points);
-                scope.Complete();
-            }
-            catch {
-                throw;
+        try
+        {
+            using (var scope = new TransactionScope()) {
+                try {
+                    var rentalTime =
+                        (agreement.EndDate.Subtract(agreement.StartDate));var numberOfDays = (int) Math.Floor(rentalTime.TotalDays);
+                    var pointsPerDay = 1;
+                    if (agreement.Vehicle.Size >= Size.Luxury)
+                        pointsPerDay = 2;
+                    var points = numberOfDays*pointsPerDay;
+                    _loyaltyDataService.AddPoints(agreement.Customer.Id, points);
+                    scope.Complete();
+                }
+                catch
+                {
+                    // if (!ExceptionHandler.Handle(ex))
+                    //     throw;
+                    throw;
+                }
             }
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
         // logging
         Console.WriteLine("Accrue complete: {0}", DateTime.Now);
     }
