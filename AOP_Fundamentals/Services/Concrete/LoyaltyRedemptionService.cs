@@ -1,4 +1,5 @@
-﻿using AOP_Fundamentals.Entities;
+﻿using System.Transactions;
+using AOP_Fundamentals.Entities;
 using AOP_Fundamentals.Repository.Abstract;
 using AOP_Fundamentals.Services.Abstract;
 
@@ -30,20 +31,22 @@ public class LoyaltyRedemptionService : ILoyaltyRedemptionService
         Console.WriteLine("Redeem: {0}", DateTime.Now);
         Console.WriteLine("Invoice: {0}", invoice.Id);
         
-        // Günlük puan miktarı belirlenir, lüks araçlar için farklı bir puan uygulanabilir.
-        var pointsPerDay = 10;
-        if (invoice.Vehicle.Size >= Size.Luxury)
-            pointsPerDay = 15;
-
-
         
-        // Kazanılacak toplam puan miktarı hesaplanır ve müşterinin puanlarından çıkarılır.
-        var points = numberOfDays*pointsPerDay;
-        _loyaltyDataService.SubtractPoints(invoice.Customer.Id, points);
-        
-        
-        // Faturaya indirim uygulanır.
-        invoice.Discount = numberOfDays * invoice.CostPerDay;
+        // transaction imp.
+        using (var scope = new TransactionScope()) {
+            try {
+                var pointsPerDay = 10;
+                if (invoice.Vehicle.Size >= Size.Luxury)
+                    pointsPerDay = 15;
+                var points = numberOfDays*pointsPerDay;
+                _loyaltyDataService.SubtractPoints(invoice.Customer.Id, points);
+                invoice.Discount = numberOfDays*invoice.CostPerDay;
+                scope.Complete();
+            }
+            catch {
+                throw;
+            }
+        }
         
         // logging 
         Console.WriteLine("Redeem complete: {0}", DateTime.Now);
