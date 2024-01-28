@@ -1,0 +1,6 @@
+C:\Users\ahmet\RiderProjects\AOP\AOP_Fundamentals\obj\Debug\net8.0\AOP_Fundamentals.csproj.AssemblyReference.cache
+C:\Users\ahmet\RiderProjects\AOP\AOP_Fundamentals\obj\Debug\net8.0\AOP_Fundamentals.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmet\RiderProjects\AOP\AOP_Fundamentals\obj\Debug\net8.0\AOP_Fundamentals.AssemblyInfoInputs.cache
+C:\Users\ahmet\RiderProjects\AOP\AOP_Fundamentals\obj\Debug\net8.0\AOP_Fundamentals.AssemblyInfo.cs
+C:\Users\ahmet\RiderProjects\AOP\AOP_Fundamentals\obj\Debug\net8.0\AOP_Fundamentals.csproj.CoreCompileInputs.cache
+C:\Users\ahmet\RiderProjects\AOP\AOP_Fundamentals\obj\Debug\net8.0\AOP_Fundamentals.sourcelink.json
