@@ -1,8 +1,11 @@
 ﻿using AOP_Fundamentals.Entities;
 using PostSharp.Aspects;
+using PostSharp.Serialization;
 
 namespace AOP_Fundamentals.Aspects.Postsharps;
 
+
+[PSerializable]
 public class LoggingAspect : OnMethodBoundaryAspect
 {
     // metoda giriş yapıldığında çalışsın

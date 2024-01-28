@@ -1,4 +1,5 @@
-﻿using AOP_Fundamentals.Entities;
+﻿using AOP_Fundamentals.CrossCuttings.Concrete;
+using AOP_Fundamentals.Entities;
 using AOP_Fundamentals.Repository.Concrete;
 using AOP_Fundamentals.Services.Concrete;
 
@@ -62,7 +63,7 @@ public static class Methods
         var dataService = new FakeLoyaltyDataService();
 
         // Sadakat puanları kullanarak ödül kazanma servisi oluşturulur ve sahte veri servisi enjekte edilir.
-        var service = new LoyaltyRedemptionService(dataService);
+        var service = new LoyaltyRedemptionServiceRefactored(dataService:dataService,new ExceptionHandler(),new TransactionManager());
 
         // Simülasyon için bir fatura örneği oluşturulur.
         var invoice = new Invoice

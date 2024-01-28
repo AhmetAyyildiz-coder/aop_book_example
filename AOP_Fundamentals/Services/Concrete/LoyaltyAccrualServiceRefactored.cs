@@ -22,12 +22,10 @@ public class LoyaltyAccrualServiceRefactored : ILoyaltyAccrualService
 
     // artık buisness içerisindenl logging'i çıkartıp bunu şekilde aspect ile log yönetebiliriz.
     [LoggingAspect]
+    [DefensiveProgrammingAspect]
     public void Accrue(RentalAgreement agreement)
     {
-        // defensive programming
-        if (agreement == null)
-            throw new ArgumentNullException("agreement");
-        // exception handling
+       
         _exceptionHandler.Wrapper(() =>
         {
             _transactionManager.Wrapper(() =>

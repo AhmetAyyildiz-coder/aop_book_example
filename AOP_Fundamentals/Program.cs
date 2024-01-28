@@ -7,9 +7,9 @@ using AOP_Fundamentals.Services.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 
 ServiceProvider serviceProvider = new ServiceCollection()
-    .AddScoped<ILoyaltyAccrualService, LoyaltyAccrualService>()
+    .AddScoped<ILoyaltyAccrualService, LoyaltyAccrualServiceRefactored>()
     .AddScoped<ILoyaltyDataService, FakeLoyaltyDataService>()
-    .AddScoped<ILoyaltyRedemptionService, LoyaltyRedemptionService>()
+    .AddScoped<ILoyaltyRedemptionService, LoyaltyRedemptionServiceRefactored>()
     .BuildServiceProvider();
     
     

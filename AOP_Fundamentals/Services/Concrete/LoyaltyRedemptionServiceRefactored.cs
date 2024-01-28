@@ -21,13 +21,9 @@ public class LoyaltyRedemptionServiceRefactored : ILoyaltyRedemptionService
 
     // new aspect - logging
     [LoggingAspect]
+    [DefensiveProgrammingAspect]
     public void Redeem(Invoice invoice, int numberOfDays)
     {
-        // defensive programming
-        if (invoice == null) throw new ArgumentNullException("invoice");
-        if(numberOfDays <= 0)
-            throw new ArgumentException("","numberOfDays");
-
         _exceptionHandler.Wrapper(() => {
             _transactionManager.Wrapper(() => {
                 var pointsPerDay = 10;
