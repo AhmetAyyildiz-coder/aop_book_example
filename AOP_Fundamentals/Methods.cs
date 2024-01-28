@@ -63,7 +63,7 @@ public static class Methods
         var dataService = new FakeLoyaltyDataService();
 
         // Sadakat puanları kullanarak ödül kazanma servisi oluşturulur ve sahte veri servisi enjekte edilir.
-        var service = new LoyaltyRedemptionServiceRefactored(dataService:dataService,new ExceptionHandler(),new TransactionManager());
+        var service = new LoyaltyRedemptionServiceRefactored(dataService:dataService);
 
         // Simülasyon için bir fatura örneği oluşturulur.
         var invoice = new Invoice
