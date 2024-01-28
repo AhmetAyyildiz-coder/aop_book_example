@@ -1,4 +1,5 @@
-﻿using AOP_Fundamentals.CrossCuttings.Abstract;
+﻿using AOP_Fundamentals.Aspects.Postsharps;
+using AOP_Fundamentals.CrossCuttings.Abstract;
 using AOP_Fundamentals.Entities;
 using AOP_Fundamentals.Repository.Abstract;
 using AOP_Fundamentals.Services.Abstract;
@@ -19,15 +20,13 @@ public class LoyaltyAccrualServiceRefactored : ILoyaltyAccrualService
         _transactionManager = transactionManager;
     }
 
+    // artık buisness içerisindenl logging'i çıkartıp bunu şekilde aspect ile log yönetebiliriz.
+    [LoggingAspect]
     public void Accrue(RentalAgreement agreement)
     {
         // defensive programming
         if (agreement == null)
             throw new ArgumentNullException("agreement");
-        // logging
-        Console.WriteLine("Accrue: {0}", DateTime.Now);
-        Console.WriteLine("Customer: {0}", agreement.Customer.Id);
-        Console.WriteLine("Vehicle: {0}", agreement.Vehicle.Id);
         // exception handling
         _exceptionHandler.Wrapper(() =>
         {
