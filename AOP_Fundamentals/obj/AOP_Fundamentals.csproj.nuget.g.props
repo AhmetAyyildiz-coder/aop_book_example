@@ -13,4 +13,7 @@
     <SourceRoot Include="C:\Users\ahmet\.nuget\packages\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)postsharp\2024.0.5\build\PostSharp.props" Condition="Exists('$(NuGetPackageRoot)postsharp\2024.0.5\build\PostSharp.props')" />
+  </ImportGroup>
 </Project>

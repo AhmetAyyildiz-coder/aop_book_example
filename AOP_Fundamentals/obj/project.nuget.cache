@@ -1,11 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "hVc3TDNG1w7sGu/L9xgZ8H6gFIJY1+aT1ilXj7IL29np5tdPLnqsN8CpDrhlAUernpIF7aukNhydbiMesSud4w==",
+  "dgSpecHash": "iCS2ex8JZ+p6ltoF5ZL8vmx6i7nCWohin/KR19W20qCGzEw6zKGnvjaqLI1uPssXik7QslvIm/sNQuYt60Y5Rw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ahmet\\RiderProjects\\AOP\\AOP_Fundamentals\\AOP_Fundamentals.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ahmet\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0\\microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
-    "C:\\Users\\ahmet\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+    "C:\\Users\\ahmet\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\ahmet\\.nuget\\packages\\postsharp\\2024.0.5\\postsharp.2024.0.5.nupkg.sha512",
+    "C:\\Users\\ahmet\\.nuget\\packages\\postsharp.redist\\2024.0.5\\postsharp.redist.2024.0.5.nupkg.sha512",
+    "C:\\Users\\ahmet\\.nuget\\packages\\microsoft.netcore.app.ref\\3.0.0\\microsoft.netcore.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\ahmet\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.0.0\\microsoft.windowsdesktop.app.ref.3.0.0.nupkg.sha512",
+    "C:\\Users\\ahmet\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.0.1\\microsoft.aspnetcore.app.ref.3.0.1.nupkg.sha512"
   ],
   "logs": []
 }
